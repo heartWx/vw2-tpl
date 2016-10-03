@@ -1,0 +1,28 @@
+{
+  "schema": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "label": "Project name"
+    },
+    "version": {
+      "type": "string",
+      "required": false,
+      "label": "Project version"
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "label": "Project description",
+      "default": "A Vue.js project"
+    },
+    "author": {
+      "type": "string",
+      "label": "Author"
+    },
+    "private": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
