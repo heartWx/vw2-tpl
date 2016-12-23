@@ -13,7 +13,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue', '.json'],
     modules: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue': 'vue/dist/vue.common.js',
@@ -30,7 +30,7 @@ module.exports = {
       {
         test: /\.vue$/,
         enforce: 'pre',
-        loader: 'eslint',
+        loader: 'eslint-loader',
         include: projectRoot,
         exclude: [
           path.resolve(projectRoot, 'node_modules')
@@ -39,7 +39,7 @@ module.exports = {
       {
         test: /\.js$/,
         enforce: 'pre',
-        loader: 'eslint',
+        loader: 'eslint-loader',
         include: projectRoot,
         exclude: [
           path.resolve(projectRoot, 'node_modules')
@@ -47,21 +47,21 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: projectRoot,
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -69,7 +69,7 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')

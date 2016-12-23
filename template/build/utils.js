@@ -22,7 +22,8 @@ exports.cssLoaders = function (options) {
         loader = loader + '-loader'
         extraParamChar = '?'
       }
-      // TODO有sourceMap参数就会出现Path must be a string. Received undefined
+      // 有sourceMap参数时npm run build就会出现Path must be a string. Received undefined
+      // 修复方法 https://github.com/webpack/css-loader/pull/356/commits/e6530d438484f6f5b26ef42d872f3c42f845030a
       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
     }).join('!')
     if (options.extract) {
