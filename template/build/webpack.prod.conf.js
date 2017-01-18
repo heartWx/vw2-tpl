@@ -45,7 +45,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         }
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.optimize.OccurrenceOrderPlugin(), // webpack2.2 default enabled
     // extract css into its own file
     new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
     // generate dist index.html with correct asset hash for caching.
