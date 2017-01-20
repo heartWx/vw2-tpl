@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import FooView from '../views/FooView';
+import BarView from '../views/BarView';
 
 Vue.use(Router);
-
-import FooView from '../views/FooView.vue';
-import BarView from '../views/BarView.vue';
 
 export default new Router({
   mode: 'history',

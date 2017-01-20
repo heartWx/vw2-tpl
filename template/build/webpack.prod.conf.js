@@ -8,7 +8,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var env = config.build.env
 
-// console.log(utils.assetsPath('css/[name].[contenthash].css'))
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
@@ -28,14 +27,15 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true, //webpack2中默认为false
+      minimize: true
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {
           formatter: require('eslint-friendly-formatter')
         },
-        // 这里有问题
         vue: {
           context: path.resolve(__dirname, './'),
           loaders: utils.cssLoaders({
